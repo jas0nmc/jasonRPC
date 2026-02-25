@@ -7,34 +7,27 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Global Variables & Reset */
     :root {
       --bg-color: #F2F2F2;
       --primary-text: #1A1A1A;
       --footer-bg: #000000;
       --footer-text: #FFFFFF;
+      --about-bg: #E8E8E8; /* slightly different tint */
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-color);
       color: var(--primary-text);
       line-height: 1.6;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s ease;
-    }
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
     /* Header / Navigation */
     header {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
       padding: 20px 5%;
       background-color: var(--bg-color);
@@ -43,6 +36,7 @@
       font-family: 'Inter', sans-serif;
       font-weight: 700;
       font-size: 1.2rem;
+      margin-bottom: 10px;
     }
     nav ul {
       list-style: none;
@@ -54,21 +48,10 @@
       font-size: 0.9rem;
       font-weight: 600;
     }
-    nav ul li a:hover {
-      text-decoration: underline;
-      color: #555555;
-    }
+    nav ul li a:hover { text-decoration: underline; color: #555555; }
+
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-      }
+      nav ul { flex-direction: column; gap: 10px; width: 100%; }
     }
 
     /* Hero Section */
@@ -117,12 +100,19 @@
     /* About Section */
     #about {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
+      background-color: var(--about-bg);
     }
     #about h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       margin-bottom: 20px;
+    }
+    #about img {
+      max-width: 200px;
+      border-radius: 12px;
+      margin: 20px auto;
+      display: block;
     }
     #about p {
       max-width: 700px;
@@ -158,7 +148,6 @@
       font-size: 0.95rem;
     }
     @media (min-width: 768px) {
-      /* Center the 4th item below 3 */
       #grid .grid-item:nth-child(4) {
         grid-column: 1 / -1;
         display: flex;
@@ -208,9 +197,10 @@
     <img src="https://via.placeholder.com/800x500/B8860B/000000?text=Art+Deco+Atlas" alt="Art Deco Atlas">
   </section>
 
-  <!-- About Me -->
+  <!-- About Me with Atlas in middle -->
   <section id="about">
     <h2>About Me</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Atlas_1.jpg/220px-Atlas_1.jpg" alt="Atlas holding the globe">
     <p>Hello, my name is Jason. I created this blog originally for a school project, but it has evolved into a dedicated space for me to analyze the intersection of human history and individual achievement. This is where I document my intellectual growth and share my perspectives on the topics that define our civilization.</p>
     <p>Here are the pillars of my research outside of the classroom:</p>
   </section>
