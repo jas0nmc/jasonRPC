@@ -29,20 +29,47 @@
     padding:20px 5%; background-color: var(--bg-color);
   }
   .logo { font-weight:700; font-size:1.2rem; margin-bottom:10px; }
+
   nav ul {
     list-style:none; display:flex; gap:20px;
+    position: relative;
   }
-  nav ul li a { font-size:0.9rem; font-weight:600; }
-  nav ul li a:hover { text-decoration:underline; color:#555; }
-  @media(max-width:768px){ nav ul{ flex-direction:column; gap:10px; width:100%; } }
+  nav ul li {
+    position: relative;
+  }
+  nav ul li a { font-size:0.9rem; font-weight:600; padding:5px 10px; display:block; }
+  nav ul li a:hover { color:#555; }
+  
+  /* Dropdown */
+  nav ul li ul {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#fff;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    list-style:none;
+    padding:0;
+    min-width:120px;
+    z-index:100;
+  }
+  nav ul li:hover ul { display:block; }
+  nav ul li ul li a { padding:8px 12px; color:#000; }
+  nav ul li ul li a:hover { background:#f0f0f0; }
+
+  @media(max-width:768px){
+    nav ul { flex-direction:column; gap:10px; width:100%; }
+    nav ul li ul { position: static; }
+  }
 
   /* Hero Section */
   #hero {
-    text-align:center; padding:60px 20px 20px;
+    text-align:center; padding:60px 20px 40px;
     background-color: var(--section-tint);
   }
   #hero img {
-    max-width:250px; display:block; margin:0 auto 20px; border-radius:12px;
+    width:80%; max-width:1000px; display:block; margin:0 auto 30px;
+    border-radius:12px;
   }
   #hero h1 { font-family:'Playfair Display', serif; font-size:3rem; margin-bottom:10px; }
   #hero p { max-width:600px; margin:0 auto; }
@@ -57,10 +84,9 @@
     text-align:center; padding:60px 20px; background-color: var(--section-tint);
   }
   #about h2 { font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:20px; }
-  #about img { max-width:200px; margin:20px auto; display:block; border-radius:12px; }
   #about p { max-width:700px; margin:20px auto; line-height:1.6; }
 
-  /* Grid Section (Research Pillars) */
+  /* Grid Section */
   #grid {
     max-width:1000px; margin:40px auto; display:grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -70,6 +96,7 @@
   .grid-item .icon { font-size:1.5rem; margin-bottom:10px; display:block; }
   .grid-item h3 { font-family:'Playfair Display', serif; font-size:1.4rem; margin-bottom:10px; }
   .grid-item p { font-family:'Inter', sans-serif; font-size:0.95rem; }
+
   @media(min-width:768px){
     #grid .grid-item:nth-child(4) {
       grid-column: 1 / -1; display:flex; justify-content:center;
@@ -88,20 +115,43 @@
 </head>
 <body>
 
-<!-- Header -->
 <header>
   <div class="logo">Jason's RPC</div>
   <nav>
     <ul>
-      <li><a href="#">Grade 9</a></li>
-      <li><a href="#">Grade 10</a></li>
-      <li><a href="#">Grade 11</a></li>
-      <li><a href="#">Grade 12</a></li>
+      <li>
+        <a href="#">Grade 9</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Grade 10</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Grade 11</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Grade 12</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>
 
-<!-- Hero Section with Atlas image -->
+<!-- Hero Section with large Atlas -->
 <section id="hero">
   <img src="https://static.vecteezy.com/system/resources/thumbnails/072/073/005/large/atlas-shrugged-holding-the-globe-in-the-city-video.jpg" alt="Atlas holding the globe">
   <h1>Welcome!</h1>
@@ -112,7 +162,6 @@
 <!-- About Section -->
 <section id="about">
   <h2>About Me</h2>
-  <img src="https://static.vecteezy.com/system/resources/thumbnails/072/073/005/large/atlas-shrugged-holding-the-globe-in-the-city-video.jpg" alt="Atlas holding the globe">
   <p>Hello, my name is Jason. I created this blog originally for a school project, but it has evolved into a dedicated space for me to analyze the intersection of human history and individual achievement. This is where I document my intellectual growth and share my perspectives on the topics that define our civilization.</p>
   <p>Here are the pillars of my research outside of the classroom:</p>
 </section>
