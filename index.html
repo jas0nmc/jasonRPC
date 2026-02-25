@@ -4,9 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jason's RPC</title>
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
+  /* =====================
+     :root Variables
+     ===================== */
   :root {
     --bg-color: #EFEFEF;
     --primary-text: #1A1A1A;
@@ -17,6 +22,9 @@
     --footer-text: #ffffff;
   }
 
+  /* =====================
+     Global Styles
+     ===================== */
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family:'Inter', sans-serif;
@@ -26,16 +34,34 @@
   }
   a { text-decoration:none; color:inherit; transition:0.3s; }
 
-  /* Header */
-  header { display:flex; flex-direction:column; align-items:center; padding:20px 5%; background-color: var(--bg-color); }
-  .logo { font-weight:700; font-size:1.3rem; margin-bottom:10px; color:#111; }
+  /* =====================
+     Header & Navigation
+     ===================== */
+  header {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:20px 5%;
+    background-color: var(--bg-color);
+  }
+  .logo {
+    font-weight:700;
+    font-size:1.3rem;
+    margin-bottom:10px;
+    color:#111;
+  }
 
-  nav ul { list-style:none; display:flex; gap:20px; position: relative; }
+  nav ul {
+    list-style:none;
+    display:flex;
+    gap:20px;
+    position: relative;
+  }
   nav ul li { position: relative; }
   nav ul li a { font-size:0.95rem; font-weight:600; padding:5px 10px; display:block; }
   nav ul li a:hover { color:#555; }
 
-  /* Dropdown */
+  /* Dropdown Menu */
   nav ul li ul {
     display:none;
     position:absolute;
@@ -57,44 +83,139 @@
     nav ul li ul { position: static; }
   }
 
-  /* Hero Section */
-  #hero { text-align:center; padding:60px 20px 40px; background-color: var(--section-tint); }
-  #hero img { width:90%; max-width:1200px; display:block; margin:0 auto 30px; border-radius:12px; box-shadow:0 15px 40px rgba(0,0,0,0.15); }
-  #hero h1 { font-family:'Playfair Display', serif; font-size:3rem; margin-bottom:10px; color:#111; }
-  #hero p { max-width:650px; margin:0 auto; font-size:1.1rem; color:#222; }
-  #hero .btn { background: var(--hero-btn); color:#fff; padding:14px 35px; margin-top:30px; border:none; font-weight:bold; letter-spacing:1px; cursor:pointer; transition:0.3s; border-radius:5px; }
-  #hero .btn:hover { background: var(--hero-btn-hover); box-shadow:0 3px 12px rgba(0,0,0,0.3); }
-
-  /* About Section */
-  #about { text-align:center; padding:60px 20px; background-color: var(--section-tint); }
-  #about h2 { font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:20px; color:#111; }
-
-  /* Grid Section */
-  #grid {
-    max-width:1000px; margin:40px auto; display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap:30px; padding:40px 20px; background-color: var(--section-tint);
+  /* =====================
+     Hero Section
+     ===================== */
+  #hero {
+    text-align:center;
+    padding:60px 20px 40px;
+    background-color: var(--section-tint);
   }
-  .grid-item { text-align:center; padding:20px; }
-  .grid-item .icon { font-size:1.5rem; margin-bottom:10px; display:block; color:#111; }
-  .grid-item h3 { font-family:'Playfair Display', serif; font-size:1.4rem; margin-bottom:10px; color:#111; }
-  .grid-item p { font-family:'Inter', sans-serif; font-size:0.95rem; color:#222; }
+  #hero img {
+    width:95%;
+    max-width:1400px;
+    display:block;
+    margin:0 auto 30px;
+    border-radius:12px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+  }
+  #hero h1 {
+    font-family:'Playfair Display', serif;
+    font-size:3rem;
+    margin-bottom:10px;
+    color:#111;
+  }
+  #hero p {
+    max-width:650px;
+    margin:0 auto;
+    font-size:1.1rem;
+    color:#222;
+  }
+  #hero .btn {
+    background: var(--hero-btn);
+    color:#fff;
+    padding:14px 35px;
+    margin-top:30px;
+    border:none;
+    font-weight:bold;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:0.3s;
+    border-radius:5px;
+  }
+  #hero .btn:hover {
+    background: var(--hero-btn-hover);
+    box-shadow:0 3px 12px rgba(0,0,0,0.3);
+  }
 
+  /* =====================
+     About Section
+     ===================== */
+  #about {
+    text-align:center;
+    padding:60px 20px;
+    background-color: var(--section-tint);
+  }
+  #about h2 {
+    font-family:'Playfair Display', serif;
+    font-size:2rem;
+    margin-bottom:20px;
+    color:#111;
+  }
+  #about p {
+    max-width:700px;
+    margin:20px auto;
+    font-size:1rem;
+    color:#222;
+  }
+
+  /* =====================
+     Research Pillars Grid
+     ===================== */
+  #grid {
+    max-width:1000px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:30px;
+    padding:40px 20px;
+    background-color: var(--section-tint);
+  }
+  .grid-item {
+    text-align:center;
+    padding:20px;
+  }
+  .grid-item .icon {
+    font-size:1.5rem;
+    margin-bottom:10px;
+    display:block;
+    color:#111;
+  }
+  .grid-item h3 {
+    font-family:'Playfair Display', serif;
+    font-size:1.4rem;
+    margin-bottom:10px;
+    color:#111;
+  }
+  .grid-item p {
+    font-family:'Inter', sans-serif;
+    font-size:0.95rem;
+    color:#222;
+  }
   @media(min-width:768px){
-    #grid .grid-item:nth-child(4) { grid-column: 1 / -1; display:flex; justify-content:center; }
+    #grid .grid-item:nth-child(4) {
+      grid-column: 1 / -1;
+      display:flex;
+      justify-content:center;
+    }
     #grid .grid-item:nth-child(4) > div { max-width:300px; }
   }
 
-  /* Footer */
-  footer { background: var(--footer-bg); text-align:center; padding:60px 20px; font-family:'Playfair Display', serif; font-style:italic; font-size:1.3rem; color: var(--footer-text); }
+  /* =====================
+     Footer
+     ===================== */
+  footer {
+    background: var(--footer-bg);
+    text-align:center;
+    padding:60px 20px;
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:1.3rem;
+    color: var(--footer-text);
+  }
 </style>
 </head>
+
 <body>
 
+<!-- =====================
+     Header
+     ===================== -->
 <header>
   <div class="logo">Jason's RPC</div>
   <nav>
     <ul>
+      <!-- Grade 8 Dropdown -->
       <li>
         <a href="#">Grade 8</a>
         <ul>
@@ -102,6 +223,7 @@
           <li><a href="#">History</a></li>
         </ul>
       </li>
+      <!-- Grade 9 Dropdown -->
       <li>
         <a href="#">Grade 9</a>
         <ul>
@@ -109,6 +231,7 @@
           <li><a href="#">History</a></li>
         </ul>
       </li>
+      <!-- Grade 10 Dropdown -->
       <li>
         <a href="#">Grade 10</a>
         <ul>
@@ -116,6 +239,7 @@
           <li><a href="#">History</a></li>
         </ul>
       </li>
+      <!-- Grade 11 Dropdown -->
       <li>
         <a href="#">Grade 11</a>
         <ul>
@@ -123,6 +247,7 @@
           <li><a href="#">History</a></li>
         </ul>
       </li>
+      <!-- Grade 12 Dropdown -->
       <li>
         <a href="#">Grade 12</a>
         <ul>
@@ -134,48 +259,68 @@
   </nav>
 </header>
 
+<!-- =====================
+     Hero Section
+     ===================== -->
 <section id="hero">
+  <!-- Large Atlas Image -->
   <img src="https://static.vecteezy.com/system/resources/thumbnails/072/073/005/large/atlas-shrugged-holding-the-globe-in-the-city-video.jpg" alt="Atlas holding the globe">
+  
+  <!-- Hero Text -->
   <h1>Welcome!</h1>
   <p>I hope you enjoy reading my essays and literature whoever stumbles upon this.</p>
+  
+  <!-- Hero Button -->
   <button class="btn">ABOUT ME</button>
 </section>
 
+<!-- =====================
+     About Section
+     ===================== -->
 <section id="about">
   <h2>About Me</h2>
+  <p>Hello, my name is Jason. I created this blog originally for a school project, but it has evolved into a dedicated space for me to analyze the intersection of human history and individual achievement. This is where I document my intellectual growth and share my perspectives on the topics that define our civilization.</p>
+  <p>Here are the pillars of my research outside of the classroom:</p>
 </section>
 
+<!-- =====================
+     Research Pillars Grid
+     ===================== -->
 <section id="grid">
   <div class="grid-item">
     <span class="icon">*</span>
     <div>
       <h3>Philosophy</h3>
-      <p>An exploration of logic, reality, and the nature of existence.</p>
+      <p>An exploration of logic, reality, and the nature of existence. My writing focuses on the power of the rational mind and the fundamental principles that guide human action.</p>
     </div>
   </div>
   <div class="grid-item">
     <span class="icon">*</span>
     <div>
       <h3>History</h3>
-      <p>Analyzing the past as a record of human struggle and triumph.</p>
+      <p>Analyzing the past not just as a series of dates, but as a record of human struggle and triumph. I examine how ideas have the power to build—or break—empires.</p>
     </div>
   </div>
   <div class="grid-item">
     <span class="icon">*</span>
     <div>
       <h3>Economics</h3>
-      <p>A study of value, production, and the mechanics of the free market.</p>
+      <p>A study of value, production, and the mechanics of the free market. I look at how economic freedom acts as the ultimate catalyst for innovation and progress.</p>
     </div>
   </div>
   <div class="grid-item">
     <span class="icon">*</span>
     <div>
       <h3>Ethics</h3>
-      <p>Exploring moral responsibility and living with integrity.</p>
+      <p>Investigating the concept of 'The Good Life.' This section explores the moral responsibility of the individual to live with integrity, purpose, and self-reliance.</p>
     </div>
   </div>
 </section>
 
+<!-- =====================
+     Footer
+     ===================== -->
 <footer>“A society that gives up freedom for safety will lose both.”</footer>
+
 </body>
 </html>
