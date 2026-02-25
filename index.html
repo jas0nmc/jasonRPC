@@ -1,306 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jason's RPC</title>
-    <style>
-      :root {
-        --bg: #d8d8d8;
-        --text: #333333;
-        --black: #000000;
-        --white: #ffffff;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason's RPC</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Variables & Reset */
+    :root {
+      --bg-color: #F2F2F2;
+      --primary-text: #1A1A1A;
+      --footer-bg: #000000;
+      --footer-text: #FFFFFF;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--primary-text);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font-family: "Inter", "Georgia", "Times New Roman", serif;
-        line-height: 1.6;
-      }
-
-      .page-shell {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 24px 20px 0;
-      }
-
+    /* Header / Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background-color: var(--bg-color);
+    }
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+      color: #555555;
+    }
+    @media (max-width: 768px) {
       header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
-
-      .logo {
-        font-size: 1.35rem;
-        font-weight: 700;
-        letter-spacing: 0.2px;
-      }
-
       nav ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        gap: 28px;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: var(--text);
-        font-size: 1rem;
-        border-bottom: 1px solid transparent;
-        transition: color 0.3s ease, border-color 0.3s ease;
-      }
-
-      nav a:hover,
-      nav a:focus-visible {
-        color: #111111;
-        border-color: #111111;
-      }
-
-      main {
-        display: grid;
-        gap: 50px;
-        padding: 56px 0 70px;
-      }
-
-      .welcome {
-        text-align: center;
-      }
-
-      .welcome h1 {
-        margin: 0;
-        font-size: clamp(2.25rem, 6vw, 3rem);
-        line-height: 1.15;
-        font-weight: 700;
-      }
-
-      .welcome p {
-        max-width: 670px;
-        margin: 16px auto 28px;
-        font-size: clamp(1rem, 2.4vw, 1.1rem);
-      }
-
-      .about-btn {
-        display: inline-block;
-        background: var(--black);
-        color: var(--white);
-        text-decoration: none;
-        padding: 12px 28px;
-        border-radius: 5px;
-        font-size: 0.95rem;
-        letter-spacing: 0.5px;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .about-btn:hover,
-      .about-btn:focus-visible {
-        background: #1f1f1f;
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-      }
-
-      .hero-image {
-        margin: 0;
-      }
-
-      .hero-image img {
+        flex-direction: column;
+        gap: 10px;
         width: 100%;
-        display: block;
-        border-radius: 10px;
-        object-fit: cover;
       }
+    }
 
-      .about {
-        text-align: center;
-        padding: 6px 0;
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+    #hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    #hero p {
+      font-family: 'Inter', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    #hero .btn {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 30px;
+      margin-top: 30px;
+      border: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #hero .btn:hover {
+      background-color: #222;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Hero Image / Showcase */
+    #showcase {
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    #showcase img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    /* About Section */
+    #about {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    #about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    #about p {
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    /* Research Pillars Grid */
+    #grid {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+    .grid-item {
+      text-align: center;
+      padding: 20px;
+    }
+    .grid-item .icon {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .grid-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .grid-item p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+    }
+    @media (min-width: 768px) {
+      /* Center the 4th item below 3 */
+      #grid .grid-item:nth-child(4) {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
       }
-
-      .about h2,
-      .topics h2 {
-        margin: 0 0 16px;
-        font-size: clamp(1.7rem, 4vw, 1.95rem);
-        font-weight: 700;
+      #grid .grid-item:nth-child(4) > div {
+        max-width: 300px;
       }
+    }
 
-      .about p {
-        max-width: 760px;
-        margin: 0 auto 12px;
-      }
+    /* Footer */
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 60px 20px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
 
-      .topics {
-        text-align: center;
-      }
+  <!-- Header -->
+  <header>
+    <div class="logo">Jason's RPC</div>
+    <nav>
+      <ul>
+        <li><a href="#">Grade 9</a></li>
+        <li><a href="#">Grade 10</a></li>
+        <li><a href="#">Grade 11</a></li>
+        <li><a href="#">Grade 12</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      .topic-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 28px;
-        align-items: start;
-      }
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1>Welcome!</h1>
+    <p>I hope you enjoy reading my essays and literature whoever stumbles upon this.</p>
+    <button class="btn">ABOUT ME</button>
+  </section>
 
-      .topic {
-        padding: 8px 8px 0;
-      }
+  <!-- Hero Image / Showcase -->
+  <section id="showcase">
+    <img src="https://via.placeholder.com/800x500/B8860B/000000?text=Art+Deco+Atlas" alt="Art Deco Atlas">
+  </section>
 
-      .topic .star {
-        font-size: 1.3rem;
-        line-height: 1;
-        margin-bottom: 10px;
-      }
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello, my name is Jason. I created this blog originally for a school project, but it has evolved into a dedicated space for me to analyze the intersection of human history and individual achievement. This is where I document my intellectual growth and share my perspectives on the topics that define our civilization.</p>
+    <p>Here are the pillars of my research outside of the classroom:</p>
+  </section>
 
-      .topic h3 {
-        margin: 0 0 10px;
-        font-size: 1.2rem;
-        font-weight: 700;
-      }
-
-      .topic p {
-        margin: 0;
-        font-size: 0.96rem;
-      }
-
-      .topic:nth-child(4) {
-        grid-column: 2;
-      }
-
-      footer {
-        background: var(--black);
-        color: var(--white);
-        text-align: center;
-        font-style: italic;
-        padding: 50px 20px;
-      }
-
-      footer p {
-        margin: 0;
-        font-size: clamp(1rem, 2.5vw, 1.2rem);
-      }
-
-      @media (max-width: 900px) {
-        .topic-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .topic:nth-child(4) {
-          grid-column: auto;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .page-shell {
-          padding-top: 18px;
-        }
-
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        nav ul {
-          gap: 12px;
-          flex-wrap: wrap;
-        }
-
-        main {
-          gap: 42px;
-          padding-top: 44px;
-        }
-
-        .topic-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page-shell">
-      <header>
-        <div class="logo">Jason's RPC</div>
-        <nav aria-label="Grade navigation">
-          <ul>
-            <li><a href="#">Grade 9</a></li>
-            <li><a href="#">Grade 10</a></li>
-            <li><a href="#">Grade 11</a></li>
-            <li><a href="#">Grade 12</a></li>
-          </ul>
-        </nav>
-      </header>
-
-      <main>
-        <section class="welcome">
-          <h1>Welcome!</h1>
-          <p>
-            I hope you enjoy reading my essays and literature whoever stumbles
-            upon this
-          </p>
-          <a class="about-btn" href="#about">ABOUT ME</a>
-        </section>
-
-        <figure class="hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1559650656-5d1d361ad10e?auto=format&fit=crop&w=1800&q=80"
-            alt="Atlas holding a globe before a stylized city scene"
-          />
-        </figure>
-
-        <section class="about" id="about">
-          <h2>About Me</h2>
-          <p>
-            Hello, my name is Jason. I created this blog for a school project,
-            but also as a space to share my perspectives on a variety of topics
-            that interest me.
-          </p>
-          <p>Here are topics you can expect from me outside of school...</p>
-        </section>
-
-        <section class="topics" aria-label="Topic previews">
-          <div class="topic-grid">
-            <article class="topic">
-              <div class="star" aria-hidden="true">✶</div>
-              <h3>Philosophy</h3>
-              <p>
-                Experience the fusion of imagination and expertise with
-                Architectural Solutions.
-              </p>
-            </article>
-            <article class="topic">
-              <div class="star" aria-hidden="true">✶</div>
-              <h3>History</h3>
-              <p>
-                Experience the fusion of imagination and expertise with Etudes
-                Architectural Solutions.
-              </p>
-            </article>
-            <article class="topic">
-              <div class="star" aria-hidden="true">✶</div>
-              <h3>Economics</h3>
-              <p>
-                Experience the fusion of imagination and expertise with Etudes
-                Architectural Solutions.
-              </p>
-            </article>
-            <article class="topic">
-              <div class="star" aria-hidden="true">✶</div>
-              <h3>Ethics</h3>
-              <p>
-                Experience the fusion of imagination and expertise with Etudes
-                Architectural Solutions.
-              </p>
-            </article>
-          </div>
-        </section>
-      </main>
+  <!-- Research Pillars Grid -->
+  <section id="grid">
+    <div class="grid-item">
+      <span class="icon">*</span>
+      <div>
+        <h3>Philosophy</h3>
+        <p>An exploration of logic, reality, and the nature of existence. My writing focuses on the power of the rational mind and the fundamental principles that guide human action.</p>
+      </div>
     </div>
+    <div class="grid-item">
+      <span class="icon">*</span>
+      <div>
+        <h3>History</h3>
+        <p>Analyzing the past not just as a series of dates, but as a record of human struggle and triumph. I examine how ideas have the power to build—or break—empires.</p>
+      </div>
+    </div>
+    <div class="grid-item">
+      <span class="icon">*</span>
+      <div>
+        <h3>Economics</h3>
+        <p>A study of value, production, and the mechanics of the free market. I look at how economic freedom acts as the ultimate catalyst for innovation and progress.</p>
+      </div>
+    </div>
+    <div class="grid-item">
+      <span class="icon">*</span>
+      <div>
+        <h3>Ethics</h3>
+        <p>Investigating the concept of 'The Good Life.' This section explores the moral responsibility of the individual to live with integrity, purpose, and self-reliance.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      <p>“A society that gives up freedom for safety will lose both.”</p>
-    </footer>
-  </body>
+  <!-- Footer -->
+  <footer>
+    “A society that gives up freedom for safety will lose both.”
+  </footer>
+
+</body>
 </html>
