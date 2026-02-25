@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jason's RPC - Grade 8</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  body { font-family:'Inter', sans-serif; background:#EFEFEF; color:#1A1A1A; margin:0; }
+  a { text-decoration:none; color:inherit; transition:0.3s; }
+
+  header { display:flex; flex-direction:column; align-items:center; padding:20px 5%; background-color:#EFEFEF; }
+  .logo { font-weight:700; font-size:1.3rem; margin-bottom:10px; color:#111; }
+  nav ul { list-style:none; display:flex; gap:20px; }
+  nav ul li { position:relative; }
+  nav ul li a { font-size:0.95rem; font-weight:600; padding:5px 10px; display:block; }
+  nav ul li a:hover { color:#555; }
+  nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:0; min-width:120px; }
+  nav ul li:hover ul { display:block; }
+  nav ul li ul li a { padding:8px 12px; color:#000; }
+  nav ul li ul li a:hover { background:#f0f0f0; }
+
+  @media(max-width:768px){
+    nav ul { flex-direction:column; gap:10px; width:100%; }
+    nav ul li ul { position: static; }
+  }
+
+  h2 { text-align:center; font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:40px; }
+  .subjects { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; max-width:1200px; margin:0 auto; }
+  .subject { flex:1 1 400px; background:#F5F5F5; padding:30px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.1); }
+  .subject h3 { font-family:'Playfair Display', serif; font-size:1.5rem; margin-bottom:20px; text-align:center; }
+  .subject .essays { max-height:300px; overflow-y:auto; padding-right:10px; }
+  .subject .essay { margin-bottom:20px; }
+  .subject .essay h4 { font-family:'Inter', sans-serif; font-weight:600; margin-bottom:5px; }
+  .subject .essay p { font-family:'Inter', sans-serif; font-size:0.95rem; line-height:1.5; }
+
+  footer { background:#000; text-align:center; padding:60px 20px; font-family:'Playfair Display', serif; font-style:italic; font-size:1.3rem; color:#fff; margin-top:40px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Jason's RPC</div>
+  <nav>
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="#">Grade 8</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="index.html">Grade 9</a>
+      </li>
+      <li>
+        <a href="index.html">Grade 10</a>
+      </li>
+      <li>
+        <a href="index.html">Grade 11</a>
+      </li>
+      <li>
+        <a href="index.html">Grade 12</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<h2>Grade 8 Subjects</h2>
+
+<div class="subjects">
+  <!-- English -->
+  <div class="subject">
+    <h3>English</h3>
+    <div class="essays">
+      <div class="essay">
+        <h4>Essay 1: The Power of Words</h4>
+        <p>An analysis of persuasive writing techniques and their impact on readers.</p>
+      </div>
+      <div class="essay">
+        <h4>Essay 2: Poetry and Emotion</h4>
+        <p>Exploring the emotional depth of poetry and the power of imagery.</p>
+      </div>
+      <div class="essay">
+        <h4>Essay 3: Storytelling & Narrative</h4>
+        <p>Techniques for building engaging stories and memorable characters.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div class="subject">
+    <h3>History</h3>
+    <div class="essays">
+      <div class="essay">
+        <h4>Essay 1: Ancient Civilizations</h4>
+        <p>Examining the rise and fall of early empires and their influence on modern society.</p>
+      </div>
+      <div class="essay">
+        <h4>Essay 2: Revolution & Reform</h4>
+        <p>The causes and consequences of historical revolutions and reforms across continents.</p>
+      </div>
+      <div class="essay">
+        <h4>Essay 3: Leadership & Legacy</h4>
+        <p>Analyzing influential leaders and the long-term effects of their decisions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>“A society that gives up freedom for safety will lose both.”</footer>
+
+</body>
+</html>
