@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jason's RPC</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap');
+
+      :root {
+        --bg: #f2f2f2;
+        --text: #1a1a1a;
+        --black: #000000;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Inter', sans-serif;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+      }
+
+      .logo {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav a {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: var(--text);
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s ease, color 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a:focus-visible {
+        color: #000;
+        border-color: #000;
+      }
+
+      #hero {
+        text-align: center;
+        padding: 60px 20px 20px;
+      }
+
+      #hero h1 {
+        margin: 0 0 10px;
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.4rem, 5vw, 3rem);
+        font-weight: 700;
+      }
+
+      #hero p {
+        margin: 0 auto;
+        max-width: 600px;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+      }
+
+      .about-btn {
+        margin-top: 30px;
+        background: var(--black);
+        color: var(--white);
+        padding: 12px 30px;
+        border: none;
+        border-radius: 0;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .about-btn:hover,
+      .about-btn:focus-visible {
+        background: #242424;
+        transform: translateY(-1px);
+      }
+
+      #showcase {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      #showcase img {
+        width: 100%;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      #about {
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      #about h2,
+      #grid h2,
+      .pillar h3,
+      footer p {
+        font-family: 'Playfair Display', serif;
+      }
+
+      #about h2,
+      #grid h2 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      #about p {
+        max-width: 700px;
+        margin: 20px auto;
+        line-height: 1.6;
+      }
+
+      #grid {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px 20px;
+      }
+
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .pillar {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .icon {
+        font-size: 1.5rem;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .pillar h3 {
+        margin: 0 0 12px;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .pillar p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .pillar--ethics {
+        grid-column: 1 / -1;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      footer {
+        background: var(--black);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      footer p {
+        margin: 0;
+        font-size: 1.3rem;
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+        }
+
+        .pillars {
+          grid-template-columns: 1fr;
+        }
+
+        .pillar--ethics {
+          grid-column: auto;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Jason's RPC</div>
+      <nav aria-label="Grade navigation">
+        <ul>
+          <li><a href="#">Grade 9</a></li>
+          <li><a href="#">Grade 10</a></li>
+          <li><a href="#">Grade 11</a></li>
+          <li><a href="#">Grade 12</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <h1>Welcome!</h1>
+        <p>
+          I hope you enjoy reading my essays and literature whoever stumbles upon
+          this.
+        </p>
+        <button class="about-btn" type="button">ABOUT ME</button>
+      </section>
+
+      <section id="showcase" aria-label="Atlas showcase image">
+        <img
+          src="https://via.placeholder.com/800x500/B8860B/000000?text=Art+Deco+Atlas"
+          alt="Art Deco Atlas"
+        />
+      </section>
+
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Hello, my name is Jason. I created this blog originally for a school
+          project, but it has evolved into a dedicated space for me to analyze
+          the intersection of human history and individual achievement. This is
+          where I document my intellectual growth and share my perspectives on
+          the topics that define our civilization.
+        </p>
+        <p>Here are the pillars of my research outside of the classroom:</p>
+      </section>
+
+      <section id="grid" aria-label="Research pillars">
+        <div class="pillars">
+          <article class="pillar">
+            <div class="icon" aria-hidden="true">*</div>
+            <h3>Philosophy</h3>
+            <p>
+              An exploration of logic, reality, and the nature of existence. My
+              writing focuses on the power of the rational mind and the
+              fundamental principles that guide human action.
+            </p>
+          </article>
+          <article class="pillar">
+            <div class="icon" aria-hidden="true">*</div>
+            <h3>History</h3>
+            <p>
+              Analyzing the past not just as a series of dates, but as a record
+              of human struggle and triumph. I examine how ideas have the power
+              to build—or break—empires.
+            </p>
+          </article>
+          <article class="pillar">
+            <div class="icon" aria-hidden="true">*</div>
+            <h3>Economics</h3>
+            <p>
+              A study of value, production, and the mechanics of the free
+              market. I look at how economic freedom acts as the ultimate
+              catalyst for innovation and progress.
+            </p>
+          </article>
+          <article class="pillar pillar--ethics">
+            <div class="icon" aria-hidden="true">*</div>
+            <h3>Ethics</h3>
+            <p>
+              Investigating the concept of 'The Good Life.' This section
+              explores the moral responsibility of the individual to live with
+              integrity, purpose, and self-reliance.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>"A society that gives up freedom for safety will lose both."</p>
+    </footer>
+  </body>
+</html>
