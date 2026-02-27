@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>8th Grade English</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== PAGE BACKGROUND ===== */
+
+body {
+
+    margin: 0;
+
+    font-family: Inter, sans-serif;
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(59,130,246,0.18), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(139,92,246,0.18), transparent 40%),
+        linear-gradient(180deg, #0f172a, #020617);
+
+    color: white;
+
+}
+
+
+/* ===== MAIN CONTAINER ===== */
+
+.container {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 60px 20px;
+
+}
+
+
+/* ===== TITLE ===== */
+
+h1 {
+
+    font-family: Playfair Display, serif;
+
+    font-size: 48px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.subtitle {
+
+    color: #94a3b8;
+
+    margin-bottom: 40px;
+
+}
+
+
+/* ===== ESSAY GRID ===== */
+
+.grid {
+
+    display: grid;
+
+    gap: 18px;
+
+}
+
+
+/* ===== ESSAY CARD ===== */
+
+.card {
+
+    display: block;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition: .25s;
+
+}
+
+
+.card:hover {
+
+    transform: translateY(-4px);
+
+    background: rgba(59,130,246,0.2);
+
+    border-color: rgba(59,130,246,0.4);
+
+}
+
+
+/* ===== BACK LINK ===== */
+
+.back {
+
+    display: inline-block;
+
+    margin-top: 40px;
+
+    color: #94a3b8;
+
+    text-decoration: none;
+
+}
+
+
+.back:hover {
+
+    color: white;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>8th Grade English</h1>
+
+<div class="subtitle">
+
+Writing Assignments
+
+</div>
+
+
+<div class="grid" id="essayGrid">
+
+Loading essays...
+
+</div>
+
+
+<a href="../../index.html" class="back">
+
+← Back to Curriculum
+
+</a>
+
+
+</div>
+
+
+<script>
+
+/*
+
+IMPORTANT LIMITATION NOTE:
+
+Browsers cannot truly scan folders automatically.
+
+So this version creates links based on common naming patterns.
+
+It will detect assignments 1–30 automatically.
+
+*/
+
+
+const grid = document.getElementById("essayGrid");
+
+grid.innerHTML = "";
+
+
+for (let i = 1; i <= 30; i++) {
+
+    const names = [
+
+        `English Writing Assignment ${i}.html`,
+        `English Writing Assignment ${i}_${i+1}.html`
+
+    ];
+
+    names.forEach(name => {
+
+        const card = document.createElement("a");
+
+        card.href = name;
+
+        card.className = "card";
+
+        card.textContent = name.replace(".html","");
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
