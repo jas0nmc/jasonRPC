@@ -5,15 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jason's RPC</title>
 
-<!-- =====================
-     Google Fonts
-     ===================== -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
   /* =====================
-     ROOT VARIABLES
+     :root Variables
      ===================== */
   :root {
     --bg-color: #EFEFEF;
@@ -26,13 +23,9 @@
   }
 
   /* =====================
-     GLOBAL STYLES
+     Global Styles
      ===================== */
-  * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
     font-family:'Inter', sans-serif;
@@ -48,7 +41,7 @@
   }
 
   /* =====================
-     HEADER
+     Header & Navigation
      ===================== */
   header {
     display:flex;
@@ -62,20 +55,17 @@
     font-weight:700;
     font-size:1.3rem;
     margin-bottom:10px;
+    color:#111;
   }
 
-  /* =====================
-     NAVBAR
-     ===================== */
   nav ul {
     list-style:none;
     display:flex;
     gap:20px;
+    position: relative;
   }
 
-  nav ul li {
-    position:relative;
-  }
+  nav ul li { position: relative; }
 
   nav ul li a {
     font-size:0.95rem;
@@ -84,37 +74,47 @@
     display:block;
   }
 
-  nav ul li a:hover {
-    color:#555;
-  }
+  nav ul li a:hover { color:#555; }
 
-  /* Dropdown */
+  /* Dropdown Menu */
   nav ul li ul {
     display:none;
     position:absolute;
     top:100%;
     left:0;
-    background:#ffffff;
-    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    background:#fff;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
     list-style:none;
-    min-width:160px;
-    z-index:999;
+    padding:0;
+    min-width:120px;
+    z-index:100;
   }
 
-  nav ul li:hover ul {
-    display:block;
-  }
+  nav ul li:hover ul { display:block; }
 
   nav ul li ul li a {
-    padding:10px;
+    padding:8px 12px;
+    color:#000;
   }
 
   nav ul li ul li a:hover {
-    background:#f2f2f2;
+    background:#f0f0f0;
+  }
+
+  @media(max-width:768px){
+    nav ul {
+      flex-direction:column;
+      gap:10px;
+      width:100%;
+    }
+
+    nav ul li ul {
+      position: static;
+    }
   }
 
   /* =====================
-     HERO SECTION
+     Hero Section
      ===================== */
   #hero {
     text-align:center;
@@ -125,66 +125,71 @@
   #hero img {
     width:95%;
     max-width:1400px;
-    margin:0 auto 30px;
     display:block;
+    margin:0 auto 30px;
     border-radius:12px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
   }
 
   #hero h1 {
     font-family:'Playfair Display', serif;
     font-size:3rem;
     margin-bottom:10px;
+    color:#111;
   }
 
   #hero p {
     max-width:650px;
     margin:0 auto;
     font-size:1.1rem;
+    color:#222;
   }
 
-  .btn {
+  #hero .btn {
+    display:inline-block; /* FIX — ensures consistent rendering */
     background: var(--hero-btn);
-    color:white;
+    color:#fff;
     padding:14px 35px;
-    margin-top:25px;
+    margin-top:30px;
     border:none;
-    border-radius:6px;
-    font-weight:600;
+    font-weight:bold;
+    letter-spacing:1px;
     cursor:pointer;
+    transition:0.3s;
+    border-radius:5px;
   }
 
-  .btn:hover {
+  #hero .btn:hover {
     background: var(--hero-btn-hover);
+    box-shadow:0 3px 12px rgba(0,0,0,0.3);
   }
 
   /* =====================
-     ABOUT SECTION FIXED
+     About Section
      ===================== */
   #about {
-    background-color: var(--section-tint);
-    padding:60px 20px;
-  }
-
-  .about-container {
-    max-width:800px;
-    margin:0 auto;
     text-align:center;
+    padding:60px 20px;
+    background-color: var(--section-tint);
   }
 
-  .about-container h2 {
+  #about h2 {
     font-family:'Playfair Display', serif;
     font-size:2rem;
     margin-bottom:20px;
+    color:#111;
   }
 
-  .about-container p {
-    margin:15px auto;
+  #about p {
     max-width:700px;
+    margin:20px auto;
+    font-size:1rem;
+    color:#222;
+    line-height:1.7; /* FIX — prevents text glitch / crowding */
   }
 
   /* =====================
-     GRID SECTION
+     Research Pillars Grid
      ===================== */
   #grid {
     max-width:1000px;
@@ -198,24 +203,52 @@
 
   .grid-item {
     text-align:center;
+    padding:20px;
+  }
+
+  .grid-item .icon {
+    font-size:1.5rem;
+    margin-bottom:10px;
+    display:block;
+    color:#111;
   }
 
   .grid-item h3 {
     font-family:'Playfair Display', serif;
+    font-size:1.4rem;
     margin-bottom:10px;
+    color:#111;
+  }
+
+  .grid-item p {
+    font-family:'Inter', sans-serif;
+    font-size:0.95rem;
+    color:#222;
+  }
+
+  @media(min-width:768px){
+    #grid .grid-item:nth-child(4) {
+      grid-column: 1 / -1;
+      display:flex;
+      justify-content:center;
+    }
+
+    #grid .grid-item:nth-child(4) > div {
+      max-width:300px;
+    }
   }
 
   /* =====================
-     FOOTER
+     Footer
      ===================== */
   footer {
-    background:black;
-    color:white;
+    background: var(--footer-bg);
     text-align:center;
     padding:60px 20px;
     font-family:'Playfair Display', serif;
     font-style:italic;
     font-size:1.3rem;
+    color: var(--footer-text);
   }
 
 </style>
@@ -223,140 +256,119 @@
 
 <body>
 
-<!-- =====================
-     HEADER
-     ===================== -->
 <header>
+  <div class="logo">Jason's RPC</div>
+  <nav>
+    <ul>
 
-<div class="logo">Jason's RPC</div>
+      <li>
+        <a href="#">Grade 8</a>
+        <ul>
+          <li><a href="/jasonRPC/8th/english/index.html">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
 
-<nav>
-<ul>
+      <li>
+        <a href="#">Grade 9</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
 
-<li>
-<a href="#">Grade 8</a>
-<ul>
-<li><a href="8th/english/index.html">English</a></li>
-<li><a href="#">History</a></li>
-</ul>
-</li>
+      <li>
+        <a href="#">Grade 10</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
 
-<li>
-<a href="#">Grade 9</a>
-<ul>
-<li><a href="#">English</a></li>
-<li><a href="#">History</a></li>
-</ul>
-</li>
+      <li>
+        <a href="#">Grade 11</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
 
-<li>
-<a href="#">Grade 10</a>
-<ul>
-<li><a href="#">English</a></li>
-<li><a href="#">History</a></li>
-</ul>
-</li>
+      <li>
+        <a href="#">Grade 12</a>
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </li>
 
-<li>
-<a href="#">Grade 11</a>
-<ul>
-<li><a href="#">English</a></li>
-<li><a href="#">History</a></li>
-</ul>
-</li>
-
-<li>
-<a href="#">Grade 12</a>
-<ul>
-<li><a href="#">English</a></li>
-<li><a href="#">History</a></li>
-</ul>
-</li>
-
-</ul>
-</nav>
-
+    </ul>
+  </nav>
 </header>
 
-<!-- =====================
-     HERO
-     ===================== -->
 <section id="hero">
 
-<img src="https://static.vecteezy.com/system/resources/thumbnails/072/073/005/large/atlas-shrugged-holding-the-globe-in-the-city-video.jpg">
+  <img src="https://static.vecteezy.com/system/resources/thumbnails/072/073/005/large/atlas-shrugged-holding-the-globe-in-the-city-video.jpg">
 
-<h1>Welcome!</h1>
+  <h1>Welcome!</h1>
 
-<p>
-I hope you enjoy reading my essays and literature whoever stumbles upon this.
-</p>
+  <p>I hope you enjoy reading my essays and literature whoever stumbles upon this.</p>
 
-<button class="btn">ABOUT ME</button>
+  <a href="/jasonRPC/8th/english/index.html" class="btn">ABOUT ME</a>
 
 </section>
 
-<!-- =====================
-     ABOUT
-     ===================== -->
 <section id="about">
 
-<div class="about-container">
+  <h2>About Me</h2>
 
-<h2>About Me</h2>
+  <p>
+  Hello, my name is Jason. I created this blog originally for a school project, but it has evolved into a dedicated space for me to analyze the intersection of human history and individual achievement. This is where I document my intellectual growth and share my perspectives on the topics that define our civilization.
+  </p>
 
-<p>
-Hello, my name is Jason. I created this blog originally for a school project,
-but it has evolved into a dedicated space for me to analyze the intersection
-of human history and individual achievement.
-</p>
-
-<p>
-This is where I document my intellectual growth and share my perspectives
-on the topics that define our civilization.
-</p>
-
-<p>
-Here are the pillars of my research outside of the classroom:
-</p>
-
-</div>
+  <p>
+  Here are the pillars of my research outside of the classroom:
+  </p>
 
 </section>
 
-<!-- =====================
-     GRID
-     ===================== -->
 <section id="grid">
 
-<div class="grid-item">
-<h3>Philosophy</h3>
-<p>Exploration of logic, reality, and human thought.</p>
-</div>
+  <div class="grid-item">
+    <span class="icon">*</span>
+    <div>
+      <h3>Philosophy</h3>
+      <p>An exploration of logic, reality, and the nature of existence. My writing focuses on the power of the rational mind and the fundamental principles that guide human action.</p>
+    </div>
+  </div>
 
-<div class="grid-item">
-<h3>History</h3>
-<p>Analysis of civilizations and historical forces.</p>
-</div>
+  <div class="grid-item">
+    <span class="icon">*</span>
+    <div>
+      <h3>History</h3>
+      <p>Analyzing the past not just as a series of dates, but as a record of human struggle and triumph. I examine how ideas have the power to build—or break—empires.</p>
+    </div>
+  </div>
 
-<div class="grid-item">
-<h3>Economics</h3>
-<p>Study of markets, incentives, and production.</p>
-</div>
+  <div class="grid-item">
+    <span class="icon">*</span>
+    <div>
+      <h3>Economics</h3>
+      <p>A study of value, production, and the mechanics of the free market. I look at how economic freedom acts as the ultimate catalyst for innovation and progress.</p>
+    </div>
+  </div>
 
-<div class="grid-item">
-<h3>Ethics</h3>
-<p>Study of morality, responsibility, and purpose.</p>
-</div>
+  <div class="grid-item">
+    <span class="icon">*</span>
+    <div>
+      <h3>Ethics</h3>
+      <p>Investigating the concept of 'The Good Life.' This section explores the moral responsibility of the individual to live with integrity, purpose, and self-reliance.</p>
+    </div>
+  </div>
 
 </section>
 
-<!-- =====================
-     FOOTER
-     ===================== -->
 <footer>
-
 “A society that gives up freedom for safety will lose both.”
-
 </footer>
 
 </body>
